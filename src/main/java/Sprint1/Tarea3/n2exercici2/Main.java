@@ -2,6 +2,7 @@ package Sprint1.Tarea3.n2exercici2;
 
 import Sprint1.Tarea3.n2exercici2.Restaurant;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -48,9 +49,7 @@ public class Main {
 
     private static void mostrarRestaurantes(HashSet<Restaurant> restaurantes) {
         System.out.println("Restaurantes: ");
-        for (Restaurant r : restaurantes) {
-            System.out.println(r.getNombre() + " - " + r.getPuntuacion());
-        }
+        restaurantes.stream().sorted(Comparator.comparing(Restaurant::getNombre).thenComparing(Restaurant::getPuntuacion, Comparator.reverseOrder())).forEach(restaurant -> System.out.println(restaurant.getInformacion()));
     }
 
     private static void comprobarRestaurante(HashSet<Restaurant> restaurantes, String nombre, byte puntuacion) {

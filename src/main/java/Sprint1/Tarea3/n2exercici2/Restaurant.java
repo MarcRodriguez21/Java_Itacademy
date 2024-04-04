@@ -17,4 +17,8 @@ public class Restaurant {
         return puntuacion;
     }
 
+    public String getInformacion() {
+        return nombre + " - " + puntuacion;
+    }
+
 }
