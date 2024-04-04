@@ -1,0 +1,34 @@
+[***  Carpeta Binding of Isaac Afterbirth+ Última modificación Mon Mar 11 20:13:28 CET 2024/
+, --------- > Archivo 20240311.abp_persistentgamedata1.dat Última modificación Mon Mar 11 20:15:29 CET 2024
+, --------- > Archivo log.txt Última modificación Mon Mar 11 20:15:29 CET 2024
+, --------- > Archivo options.ini Última modificación Mon Mar 11 20:15:29 CET 2024
+, ***  Carpeta Binding of Isaac Afterbirth+ Mods Última modificación Sun Mar 10 20:41:47 CET 2024/
+, ***  Carpeta Binding of Isaac Repentance Última modificación Fri Mar 22 11:30:46 CET 2024/
+, --------- > Archivo 20240311.rep_persistentgamedata1.dat Última modificación Mon Mar 11 23:18:53 CET 2024
+, --------- > Archivo Hola.txt Última modificación Fri Mar 22 11:31:01 CET 2024
+, --------- > Archivo log.txt Última modificación Mon Mar 11 23:18:54 CET 2024
+, --------- > Archivo options.ini Última modificación Mon Mar 11 23:18:53 CET 2024
+, --------- > Archivo Hola.txt Última modificación Fri Mar 22 11:34:07 CET 2024
+][***  Carpeta Binding of Isaac Afterbirth+ Última modificación Mon Mar 11 20:13:28 CET 2024/
+, --------- > Archivo 20240311.abp_persistentgamedata1.dat Última modificación Mon Mar 11 20:15:29 CET 2024
+, --------- > Archivo log.txt Última modificación Mon Mar 11 20:15:29 CET 2024
+, --------- > Archivo options.ini Última modificación Mon Mar 11 20:15:29 CET 2024
+, ***  Carpeta Binding of Isaac Afterbirth+ Mods Última modificación Sun Mar 10 20:41:47 CET 2024/
+, ***  Carpeta Binding of Isaac Repentance Última modificación Fri Mar 22 11:30:46 CET 2024/
+, --------- > Archivo 20240311.rep_persistentgamedata1.dat Última modificación Mon Mar 11 23:18:53 CET 2024
+, --------- > Archivo Hola.txt Última modificación Fri Mar 22 11:31:01 CET 2024
+, --------- > Archivo log.txt Última modificación Mon Mar 11 23:18:54 CET 2024
+, --------- > Archivo options.ini Última modificación Mon Mar 11 23:18:53 CET 2024
+, --------- > Archivo Hola.txt Última modificación Fri Mar 22 11:34:07 CET 2024
+][***  Carpeta Binding of Isaac Afterbirth+ Última modificación Mon Mar 11 20:13:28 CET 2024/
+, --------- > Archivo 20240311.abp_persistentgamedata1.dat Última modificación Mon Mar 11 20:15:29 CET 2024
+, --------- > Archivo log.txt Última modificación Mon Mar 11 20:15:29 CET 2024
+, --------- > Archivo options.ini Última modificación Mon Mar 11 20:15:29 CET 2024
+, ***  Carpeta Binding of Isaac Afterbirth+ Mods Última modificación Sun Mar 10 20:41:47 CET 2024/
+, ***  Carpeta Binding of Isaac Repentance Última modificación Fri Mar 22 11:30:46 CET 2024/
+, --------- > Archivo 20240311.rep_persistentgamedata1.dat Última modificación Mon Mar 11 23:18:53 CET 2024
+, --------- > Archivo Hola.txt Última modificación Fri Mar 22 11:31:01 CET 2024
+, --------- > Archivo log.txt Última modificación Mon Mar 11 23:18:54 CET 2024
+, --------- > Archivo options.ini Última modificación Mon Mar 11 23:18:53 CET 2024
+, --------- > Archivo Hola.txt Última modificación Fri Mar 22 11:34:07 CET 2024
+]
