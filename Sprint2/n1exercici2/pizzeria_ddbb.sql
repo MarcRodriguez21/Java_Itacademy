@@ -45,6 +45,7 @@ CREATE TABLE pizzeria(
 CREATE TABLE comanda(
     id_comanda INT PRIMARY KEY AUTO_INCREMENT,
     cliente_id INT,
+    empleado_id INT,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     envio SET('domicilio','recogida'),
     cantidad_pizza INT,
@@ -54,6 +55,7 @@ CREATE TABLE comanda(
     pizzeria_id INT,
     localidad_id INT,
     provincia_id INT,
+    FOREIGN KEY (empleado_id) REFERENCES empleado(id_empleado),
     FOREIGN KEY (cliente_id) REFERENCES cliente(id_cliente),
     FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id_pizzeria),
     FOREIGN KEY (localidad_id) REFERENCES localidades(id_localitat),
