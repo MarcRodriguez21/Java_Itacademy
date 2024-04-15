@@ -142,13 +142,26 @@ HAVING COUNT(a.id) > 40
 ORDER BY cantidad_asignaturas DESC;
 
 -- 7.Retorna un llistat que mostri el nom dels graus i la suma del nombre total de crèdits que hi ha per a cada tipus d'assignatura. El resultat ha de tenir tres columnes: nom del grau, tipus d'assignatura i la suma dels crèdits de totes les assignatures que hi ha d'aquest tipus.
-
+SELECT g.nombre AS nombre_grado, a.tipo, SUM(a.creditos) AS total_creditos
+FROM grado g
+LEFT JOIN asignatura a ON g.id = a.id_grado
+GROUP BY g.nombre, a.tipo;
 
 -- 8.Retorna un llistat que mostri quants alumnes s'han matriculat d'alguna assignatura en cadascun dels cursos escolars. El resultat haurà de mostrar dues columnes, una columna amb l'any d'inici del curs escolar i una altra amb el nombre d'alumnes matriculats.
+SELECT ce.anyo_inicio, COUNT(DISTINCT a.id_alumno) AS num_alumnos_matriculados
+FROM curso_escolar ce
+LEFT JOIN alumno_se_matricula_asignatura a ON ce.id = a.id_curso_escolar
+GROUP BY ce.anyo_inicio;
 
 
 -- 9.Retorna un llistat amb el nombre d'assignatures que imparteix cada professor/a. El llstat ha de tenir en compte aquells professors/es que no imparteixen cap assignatura. El resultat mostrarà cinc columnes: id, nom, primer cognom, segon cognom i nombre d'assignatures. El resultat estarà ordenat de major a menor pel nombre d'assignatures.
-
+SELECT p.id, p.nombre, p.apellido1, p.apellido2, COUNT(a.id_profesor) AS num_asignaturas
+FROM persona p
+LEFT JOIN profesor pr ON p.id = pr.id_profesor
+LEFT JOIN asignatura a ON pr.id_profesor = a.id_profesor
+WHERE p.tipo = 'profesor'
+GROUP BY p.id, p.nombre, p.apellido1, p.apellido2
+ORDER BY num_asignaturas DESC;
 
 -- 10.Retorna totes les dades de l'alumne/a més jove.
 SELECT DISTINCT *
