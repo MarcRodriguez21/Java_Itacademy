@@ -36,18 +36,11 @@ VALUES
 (3, 1, '2024-03-02 11:00:00');
 
 -- INSERTAR DATOS FICTICIOS EN LA TABLA DE ME GUSTA
-INSERT INTO likes (user_id, channel_id, video_id, like_date)
+INSERT INTO likes (user_id, channel_id, video_id, choose, like_date)
 VALUES
-(1, 2, 1, '2024-01-03 10:30:00'),
-(2, 3, 2, '2024-02-03 11:00:00'),
-(3, 1, 3, '2024-03-03 12:30:00');
-
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE NO ME GUSTA
-INSERT INTO dislikes (user_id, channel_id, video_id, dislike_date)
-VALUES
-(1, 3, 1, '2024-01-04 10:45:00'),
-(2, 1, 2, '2024-02-04 11:15:00'),
-(3, 2, 3, '2024-03-04 12:45:00');
+(1, 2, 1,"like", '2024-01-03 10:30:00'),
+(2, 3, 2,"dislike", '2024-02-03 11:00:00'),
+(3, 1, 3,"dislike", '2024-03-03 12:30:00');
 
 -- INSERTAR DATOS FICTICIOS EN LA TABLA DE LISTAS DE REPRODUCCIÓN
 INSERT INTO playlist (playlist_name, date_creation, playlist_status)
@@ -71,15 +64,8 @@ VALUES
 ('Interesante tutorial', '2024-03-05 11:30:00', 3, 1, 3);
 
 -- INSERTAR DATOS FICTICIOS EN LA TABLA DE ME GUSTA DE COMENTARIOS
-INSERT INTO comment_like (date_creation, user_id, comment_id)
+INSERT INTO comment_like (date_creation, user_id, choose,comment_id)
 VALUES
-('2024-01-06 09:45:00', 1, 1),
-('2024-02-06 10:15:00', 2, 2),
-('2024-03-06 11:45:00', 3, 3);
-
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE NO ME GUSTA DE COMENTARIOS
-INSERT INTO comment_dislike (date_creation, user_id, comment_id)
-VALUES
-('2024-01-07 09:50:00', 1, 2),
-('2024-02-07 10:20:00', 2, 3),
-('2024-02-07 10:10:00', 2, 3)
+('2024-01-06 09:45:00', 1,"like" ,1),
+('2024-02-06 10:15:00', 2,"dislike" ,2),
+('2024-03-06 11:45:00', 3,"dislike" ,3);
