@@ -67,20 +67,9 @@ CREATE TABLE likes(
 	id_like INT PRIMARY KEY AUTO_INCREMENT,
 	user_id INT,
     channel_id INT,
+    choose ENUM('like','dislike'),
     video_id INT,
     like_date DATETIME,
-    FOREIGN KEY (user_id) REFERENCES users(id_user),
-    FOREIGN KeY (channel_id) REFERENCES userchannel(id_channel),
-    FOREIGN KEY (video_id) REFERENCES video(id_video)
-);
-
--- CREATION OF TABLE DISLIKE
-CREATE TABLE dislikes(
-	id_dislike INT PRIMARY KEY AUTO_INCREMENT,
-	user_id INT,
-    channel_id INT,
-    video_id INT,
-    dislike_date DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(id_user),
     FOREIGN KeY (channel_id) REFERENCES userchannel(id_channel),
     FOREIGN KEY (video_id) REFERENCES video(id_video)
@@ -119,21 +108,14 @@ CREATE TABLE comments(
 CREATE TABLE comment_like(
 	id_commentlike INT PRIMARY KEY AUTO_INCREMENT,
     date_creation DATETIME,
+    choose ENUM('like','dislike'),
     user_id INT,
     comment_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id_user),
     FOREIGN KeY (comment_id) REFERENCES comments(id_comment)
 );
     
--- CREATION OF COMMENT DISLIKE
-CREATE TABLE comment_dislike(
-	id_commendistlike INT PRIMARY KEY AUTO_INCREMENT,
-    date_creation DATETIME,
-    user_id INT,
-    comment_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id_user),
-    FOREIGN KeY (comment_id) REFERENCES comments(id_comment)
-);
+
     
     
 	
