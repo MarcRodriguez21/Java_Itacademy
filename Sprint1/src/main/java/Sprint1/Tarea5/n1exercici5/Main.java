@@ -25,17 +25,6 @@ public class Main {
             System.out.println(e.getMessage());
         }
     }
-    static class Coche implements Serializable {
-        private String marca;
-        private int modelo;
-        public Coche(String marca, int modelo) {
-            this.marca = marca;
-            this.modelo = modelo;
-        }
-        @Override
-        public String toString() {
-            return marca + " " + modelo;
-        }
-    }
+
 }
 

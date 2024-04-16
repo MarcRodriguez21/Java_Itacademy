@@ -23,20 +23,14 @@ public class Venda {
         try {
             if (productos.length == 0) {
                 throw new VendaBuidaException("Per fer una venda primer has d’afegir productes.");
-            }else {
-                for (Producte producto : productos) {
-                    this.precioTotal += producto.getPreu();
-                }
             }
 
             System.out.println("Venta OutOfBounds");
             Producte[] errorOutofBounds = new Producte[1];
             errorOutofBounds[1] = new Producte("Cola",2);
 
-        } catch (VendaBuidaException error) {
-            String mensaje = error.getMensaje();
-
-            System.out.println(mensaje);
+        } catch (VendaBuidaException e) {
+            System.out.println(e.getMessage());
         } catch (ArrayIndexOutOfBoundsException errorOut) {
             System.out.println("Excepcion Out Of Bounds. " + errorOut.getMessage());
 
@@ -45,5 +39,13 @@ public class Venda {
         return precioTotal;
 
     }
+    public int ventaConProductos() {
+        for (Producte producto : productos) {
+            this.precioTotal += producto.getPreu();
+        }
+
+        return precioTotal;
+}
+
 }
 

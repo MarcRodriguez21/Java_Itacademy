@@ -38,10 +38,8 @@ public class Main {
             }
 
             lectorLineas.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException  e) {
             System.out.println(e.getMessage());
-        } catch (IOException g) {
-            System.out.println(g.getMessage());
         }
 
         System.out.println("Dígame su nombre de Usuario");

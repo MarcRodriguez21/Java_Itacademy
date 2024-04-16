@@ -14,7 +14,7 @@ public class Main {
         Vent trompeta = new Vent("trompeta", 120);
         trompeta.tocar();
 
-        Percussió bateria = new Percussió("bateria", 120);
+        Percussio bateria = new Percussio("bateria", 120);
         bateria.tocar();
     }
 }

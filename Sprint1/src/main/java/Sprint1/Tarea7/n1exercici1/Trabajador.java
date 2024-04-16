@@ -2,9 +2,9 @@ package Sprint1.Tarea7.n1exercici1;
 
 public abstract class Trabajador {
 
-    private String nombre;
-    private String apellidos;
-    private int precioHora;
+    protected String nombre;
+    protected String apellidos;
+    protected int precioHora;
 
     public Trabajador(String nombre, String apellidos, int precioHora) {
         this.nombre = nombre;

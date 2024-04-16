@@ -1,8 +1,8 @@
 package Sprint1.Tarea1.n1exercici1;
 
-public class Percussió extends Instrument{
+public class Percussio extends Instrument{
 
-    public Percussió(String nom, int preu) {
+    public Percussio(String nom, int preu) {
         super(nom,preu);
 
     }

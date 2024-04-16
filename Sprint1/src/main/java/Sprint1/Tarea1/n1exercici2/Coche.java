@@ -3,11 +3,11 @@ package Sprint1.Tarea1.n1exercici2;
 public class Coche {
 
     private static final String MARCA = "Audi";
-    private static String model;
+    private static String model = "RS3";
     private final int POTENCIA;
 
     public Coche(String model, int potencia) {
-        this.model = model;
+        Coche.model = model;
         this.POTENCIA = potencia;
 
     }

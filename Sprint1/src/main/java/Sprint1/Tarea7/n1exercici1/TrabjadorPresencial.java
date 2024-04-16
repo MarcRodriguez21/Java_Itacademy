@@ -2,7 +2,7 @@ package Sprint1.Tarea7.n1exercici1;
 
 public class TrabjadorPresencial extends Trabajador {
 
-    private static float GASOLINA;
+    private static float GASOLINA = 0;
 
     public TrabjadorPresencial(String nombre, String apellidos, int precioHora, float gasolina) {
         super(nombre, apellidos, precioHora);

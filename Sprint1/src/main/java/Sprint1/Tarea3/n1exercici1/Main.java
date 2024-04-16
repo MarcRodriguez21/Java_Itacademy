@@ -46,6 +46,8 @@ public class Main {
             String mes = meses.get(i).getName();
             System.out.println(mes);
         }
+
+        //Como vemos la lista de meses se imprime ordenada
         System.out.println();
         System.out.println("--------Impresión lista de meses en HashSet--------");
         System.out.println();
@@ -60,9 +62,9 @@ public class Main {
 
         Iterator<Month> iterador = mesesIterator.iterator();
 
-        for(int i = 0; i < meses.size(); i++) {
-            String mes = iterador.next().getName();
-            System.out.println(mes);
+        while(iterador.hasNext()) {
+            Month mes = iterador.next();
+            System.out.println(mes.getName());
         }
 
         //Como vemos añado otra vez el mes agosto y solo se imprime una vez, ya que el hashset no admite valores repetidos al contrario que un ArrayList

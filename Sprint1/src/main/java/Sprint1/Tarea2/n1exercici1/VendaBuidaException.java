@@ -4,14 +4,6 @@ class VendaBuidaException extends Exception {
 
     public VendaBuidaException(String mensaje) {
         super(mensaje);
-
-        this.mensaje = mensaje;
-    }
-
-    private String mensaje;
-
-    public String getMensaje() {
-        return this.mensaje;
     }
 
 }

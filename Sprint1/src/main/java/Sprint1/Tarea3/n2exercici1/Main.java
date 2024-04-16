@@ -1,6 +1,7 @@
 package Sprint1.Tarea3.n2exercici1;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -53,14 +54,11 @@ public class Main {
 
     private static void comprobarRestaurante(HashSet<Restaurant> restaurantes, String nombre, byte puntuacion) {
         Restaurant nuevo = new Restaurant(nombre, puntuacion);
-        boolean restauranteExistente = restaurantes.stream()
-                .anyMatch(restaurante -> restaurante.getNombre().equalsIgnoreCase(nombre)
-                        && restaurante.getPuntuacion() == puntuacion);
-        if (restauranteExistente) {
+        if (restaurantes.contains(nuevo)) {
             System.out.println("El restaurante ya existe. Prueba con otro nombre o con otra puntuación.");
         } else {
             restaurantes.add(nuevo);
-            System.out.println("Restaurante creado con éxito");
+            System.out.println("Restaurante creado con éxito");
         }
     }
 }

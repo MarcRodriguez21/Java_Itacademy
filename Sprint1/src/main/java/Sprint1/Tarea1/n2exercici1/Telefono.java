@@ -1,15 +1,6 @@
 package Sprint1.Tarea1.n2exercici1;
 
 
-
-interface Camara{
-    void fotografiar();
-}
-
-interface Reloj{
-    void alarma();
-}
-
 public class Telefono {
 
     private String marca;

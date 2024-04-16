@@ -1,5 +1,4 @@
 package Sprint1.Tarea5.n1exercici3;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,10 +17,14 @@ public class Main {
         String archivotxt = archivostxt.toString();
 
 
-        String rutaAccesoFinal = "C:/Users/marcr/IdeaProjects/Java_Itacademy/src/main/java/Sprint1/Tarea5/n1exercici3/listaArchivos.txt";
+        String rutaProyecto = System.getProperty("user.dir");
+        String rutaAccesoFinal = rutaProyecto + "/listaArchivos.txt";
+
         File archivo = new File(rutaAccesoFinal);
         try(FileWriter fileWriter = new FileWriter(archivo, true)){
-            fileWriter.write(archivotxt);
+            for (String linea : archivostxt) {
+                fileWriter.write(linea + "\n");
+            }
         }catch(IOException e){
             System.out.println(e.getMessage());
         }
@@ -38,12 +41,11 @@ public class Main {
                 if(file.isDirectory()){
                     String lineaCarpeta = "*** " + " Carpeta " + file.getName() + " Última modificación " + fecha.toString() + "/";
                     archivostxt.add(lineaCarpeta + "\n");
-                   // System.out.println(lineaCarpeta);
                     archivostxt.addAll(buscarDirectorio(file.getAbsolutePath(), nivel + 1));
                 }else{
                     String lineaArchivo = "--------- >" + " Archivo " + file.getName() + " Última modificación " + fecha.toString();
-                   // System.out.println(lineaArchivo);
                     archivostxt.add(lineaArchivo + "\n");
+
 
                 }
             }

@@ -14,14 +14,4 @@ public class OutOfBounds {
 
         throw new ArrayIndexOutOfBoundsException();
     }
-    /*public static void ErrorTest1() {
-        int valor = 0;
-        try {
-            int[] listaNum = {0, 1, 2, 3};
-            valor = listaNum[5];
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error OutOfBounds " + e.getMessage());
-
-        }
-    }*/
 }

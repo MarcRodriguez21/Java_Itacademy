@@ -1,8 +1,6 @@
 package Sprint1.Tarea3.n2exercici2;
 
-import Sprint1.Tarea3.n2exercici2.Restaurant;
 
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -11,11 +9,11 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        HashSet<Restaurant> restaurantes = new HashSet<>();
+        HashSet<Sprint1.Tarea3.n2exercici2.Restaurant> restaurantes = new HashSet<>();
         menu(restaurantes);
     }
 
-    private static void menu(HashSet<Restaurant> restaurantes) {
+    private static void menu(HashSet<Sprint1.Tarea3.n2exercici2.Restaurant> restaurantes) {
         byte op;
         do {
             System.out.println("1. Crear nuevo restaurante");
@@ -39,7 +37,7 @@ public class Main {
         } while (op != 3);
     }
 
-    private static void crearRestaurante(HashSet<Restaurant> restaurantes) {
+    private static void crearRestaurante(HashSet<Sprint1.Tarea3.n2exercici2.Restaurant> restaurantes) {
         System.out.println("Introduce el nombre del nuevo restaurante");
         String nombre = sc.next();
         System.out.println("Introduce la puntuación del nuevo restaurante");
@@ -47,22 +45,20 @@ public class Main {
         comprobarRestaurante(restaurantes, nombre, puntuacion);
     }
 
-    private static void mostrarRestaurantes(HashSet<Restaurant> restaurantes) {
+    private static void mostrarRestaurantes(HashSet<Sprint1.Tarea3.n2exercici2.Restaurant> restaurantes) {
         System.out.println("Restaurantes: ");
-        restaurantes.stream().sorted(Comparator.comparing(Restaurant::getNombre).thenComparing(Restaurant::getPuntuacion, Comparator.reverseOrder())).forEach(restaurant -> System.out.println(restaurant.getInformacion()));
+        for (Sprint1.Tarea3.n2exercici2.Restaurant r : restaurantes) {
+            System.out.println(r.getNombre() + " - " + r.getPuntuacion());
+        }
     }
 
     private static void comprobarRestaurante(HashSet<Restaurant> restaurantes, String nombre, byte puntuacion) {
-        Restaurant nuevo = new Restaurant(nombre, puntuacion);
-        boolean restauranteExistente = restaurantes.stream()
-                .anyMatch(restaurante -> restaurante.getNombre().equalsIgnoreCase(nombre)
-                        && restaurante.getPuntuacion() == puntuacion);
-        if (restauranteExistente) {
+        Sprint1.Tarea3.n2exercici2.Restaurant nuevo = new Restaurant(nombre, puntuacion);
+        if (restaurantes.contains(nuevo)) {
             System.out.println("El restaurante ya existe. Prueba con otro nombre o con otra puntuación.");
         } else {
             restaurantes.add(nuevo);
-            System.out.println("Restaurante creado con éxito");
+            System.out.println("Restaurante creado con éxito");
         }
     }
 }
-
