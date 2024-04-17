@@ -21,6 +21,17 @@ CREATE TABLE tag(
     tagname VARCHAR(60)
 );
 
+-- CREATION OF TABLE CHANNEL
+CREATE TABLE userchannel(
+	id_channel INT PRIMARY KEY AUTO_INCREMENT,
+	channel_name VARCHAR(120),
+    channel_description TEXT,
+    date_creation DATETIME,
+    user_id INTEGER,
+    channel_status ENUM('public','hidden','private'),
+    FOREIGN KEY (user_id) REFERENCES users(id_user)
+);
+
 -- CREATION OF TABLE VIDEOS
 CREATE TABLE video(
 	id_video INT PRIMARY KEY AUTO_INCREMENT,
@@ -33,24 +44,13 @@ CREATE TABLE video(
     reproductions INT,
     likes INT,
     dislikes INT,
-    user_id INT,
     date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     video_status ENUM('public','hidden','private'),
     tag_id INT,
-    FOREIGN KEY (user_id) REFERENCES users (id_user),
+    channel_id INT,
+    FOREIGN KEY (channel_id) REFERENCES userchannel(id_channel),
     FOREIGN KEY (tag_id) REFERENCES tag (id_tag)
     );
-
--- CREATION OF TABLE CHANNEL
-CREATE TABLE userchannel(
-	id_channel INT PRIMARY KEY AUTO_INCREMENT,
-	channel_name VARCHAR(120),
-    channel_description TEXT,
-    date_creation DATETIME,
-    user_id INTEGER,
-    channel_status ENUM('public','hidden','private'),
-    FOREIGN KEY (user_id) REFERENCES users(id_user)
-);
 
 -- CREATION OF TABLE SUSCRPITION
 CREATE TABLE suscription(
@@ -66,12 +66,10 @@ CREATE TABLE suscription(
 CREATE TABLE likes(
 	id_like INT PRIMARY KEY AUTO_INCREMENT,
 	user_id INT,
-    channel_id INT,
     choose ENUM('like','dislike'),
     video_id INT,
     like_date DATETIME,
     FOREIGN KEY (user_id) REFERENCES users(id_user),
-    FOREIGN KeY (channel_id) REFERENCES userchannel(id_channel),
     FOREIGN KEY (video_id) REFERENCES video(id_video)
 );
 
@@ -97,10 +95,8 @@ CREATE TABLE comments(
     comment_text TEXT,
     date_creation DATETIME,
     user_id INT,
-    channel_id INT,
     video_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id_user),
-    FOREIGN KeY (channel_id) REFERENCES userchannel(id_channel),
     FOREIGN KEY (video_id) REFERENCES video(id_video)
 );
 

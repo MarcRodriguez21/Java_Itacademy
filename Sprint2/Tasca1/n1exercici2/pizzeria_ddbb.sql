@@ -17,28 +17,49 @@ CREATE TABLE localidades(
     FOREIGN KEY (provincia_id) REFERENCES provincias(id_provincia)
 );
 
+CREATE TABLE direccion(
+	id_direccion INTEGER PRIMARY KEY AUTO_INCREMENT,
+    calle VARCHAR(50),
+    numero VARCHAR(20),
+    piso VARCHAR(10),
+    puerta VARCHAR(10),
+    cp VARCHAR(12),
+    pais VARCHAR(30),
+    localidad_id INT,
+    provincia_id INT,
+    FOREIGN KEY (localidad_id) REFERENCES localidades(id_localitat),
+    FOREIGN KEY (provincia_id) REFERENCES provincias(id_provincia)
+    );
+
 -- CREATION OF TABLE CLIENTE 
 CREATE TABLE cliente(
     id_cliente INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(45),
     apellido VARCHAR(60),
     tef VARCHAR(15),
-    direccion VARCHAR(100),
-    c_postal VARCHAR(6),
-    localidad_id INT,
-    provincia_id INT,
-    FOREIGN KEY (localidad_id) REFERENCES localidades(id_localitat),
-    FOREIGN KEY (provincia_id) REFERENCES provincias(id_provincia)
+    direccion_id INT,
+    FOREIGN KEY (direccion_id) REFERENCES direccion(id_direccion)
 );
 
 -- CREATION OF TABLE PIZZERIA
 CREATE TABLE pizzeria(
     id_pizzeria INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(40),
-    localidad_id INT,
-    provincia_id INT,
-    FOREIGN KEY (localidad_id) REFERENCES localidades(id_localitat),
-    FOREIGN KEY (provincia_id) REFERENCES provincias(id_provincia)
+	direccion_id INT,
+    FOREIGN KEY (direccion_id) REFERENCES direccion(id_direccion)
+);
+
+-- CREATION OF TABLE EMPLEADO
+CREATE TABLE empleado(
+    id_empleado INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(40),
+    apellido VARCHAR(40),
+    NIF VARCHAR(10),
+    tef VARCHAR(12),
+    cargo SET('repartidor','cocinero'),
+    pizzeria_id INT,
+    reparto_id INT,
+    FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id_pizzeria)
 );
 
 -- CREATION OF TABLE COMANDA
@@ -53,13 +74,11 @@ CREATE TABLE comanda(
     cantidad_bebidas INT,
     precio_total INT,
     pizzeria_id INT,
-    localidad_id INT,
-    provincia_id INT,
+	direccion_id INT,
+    FOREIGN KEY (direccion_id) REFERENCES direccion(id_direccion),
     FOREIGN KEY (empleado_id) REFERENCES empleado(id_empleado),
     FOREIGN KEY (cliente_id) REFERENCES cliente(id_cliente),
-    FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id_pizzeria),
-    FOREIGN KEY (localidad_id) REFERENCES localidades(id_localitat),
-    FOREIGN KEY (provincia_id) REFERENCES provincias(id_provincia)
+    FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id_pizzeria)
 );
 -- CREATION OF TABLE HAMBURGUESA
 CREATE TABLE hamburguesa(
@@ -94,19 +113,6 @@ CREATE TABLE pizza(
     imagen VARCHAR(10),
     precio INT,
     FOREIGN KEY (categoria_id) REFERENCES categoria(id_categoria)
-);
-    
--- CREATION OF TABLE EMPLEADO
-CREATE TABLE empleado(
-    id_empleado INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(40),
-    apellido VARCHAR(40),
-    NIF VARCHAR(10),
-    tef VARCHAR(12),
-    cargo SET('repartidor','cocinero'),
-    pizzeria_id INT,
-    reparto_id INT,
-    FOREIGN KEY (pizzeria_id) REFERENCES pizzeria(id_pizzeria)
 );
 
 -- CREATION OF TABLE REPARTO

@@ -1,71 +1,70 @@
-USE youtube;
-
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE USUARIOS
+-- Inserción de datos en la tabla users
 INSERT INTO users (username, email, password, dob, gender, country, postcode)
-VALUES
-('usuario1', 'usuario1@example.com', 'password1', '1990-05-15', 'male', 'Spain', '08001'),
-('usuario2', 'usuario2@example.com', 'password2', '1985-08-20', 'female', 'USA', '90210'),
-('usuario3', 'usuario3@example.com', 'password3', '2000-12-10', 'other', 'France', '75001');
+VALUES 
+('user1', 'user1@example.com', 'password123', '1990-05-15', 'male', 'Spain', '28001'),
+('user2', 'user2@example.com', 'password456', '1995-10-20', 'female', 'Mexico', '03100'),
+('user3', 'user3@example.com', 'password789', '1988-03-25', 'other', 'Argentina', 'C1425ABP');
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE ETIQUETAS
+-- Inserción de datos en la tabla tag
 INSERT INTO tag (tagname)
-VALUES
-('Funny'),
-('Music'),
-('Tutorial');
+VALUES 
+('entertainment'),
+('educational'),
+('travel'),
+('sports');
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE VIDEOS
-INSERT INTO video (title, description, size, filename, duration, thumbnail, reproductions, likes, dislikes, user_id, video_status, tag_id)
-VALUES
-('Video1', 'Descripción del video 1', 500, 'video1.mp4', '10:30', 'thumbnail1.jpg', 1000000, 5000, 200, 1, 'public', 1),
-('Video2', 'Descripción del video 2', 800, 'video2.mp4', '8:45', 'thumbnail2.jpg', 800000, 6000, 300, 2, 'public', 2),
-('Video3', 'Descripción del video 3', 1200, 'video3.mp4', '5:10', 'thumbnail3.jpg', 1200000, 7000, 400, 3, 'public', 3);
-
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE CANALES
+-- Inserción de datos en la tabla userchannel
 INSERT INTO userchannel (channel_name, channel_description, date_creation, user_id, channel_status)
-VALUES
-('Canal1', 'Descripción del canal 1', '2024-01-01 12:00:00', 1, 'public'),
-('Canal2', 'Descripción del canal 2', '2024-02-01 14:30:00', 2, 'public'),
-('Canal3', 'Descripción del canal 3', '2024-03-01 10:45:00', 3, 'public');
+VALUES 
+('My Channel', 'Personal channel of user1', '2020-01-01 10:00:00', 1, 'public'),
+('Travel Channel', 'Channel for sharing travel experiences', '2019-05-20 15:30:00', 2, 'private'),
+('Sports Channel', 'Channel for live sports events broadcasting', '2021-03-10 08:45:00', 3, 'hidden');
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE SUSCRIPCIONES
+-- Inserción de datos en la tabla video
+INSERT INTO video (title, description, size, filename, duration, thumbnail, reproductions, likes, dislikes, date_creation, video_status, tag_id, channel_id)
+VALUES 
+('Test Video 1', 'Description of test video 1', 1024, 'video1.mp4', '00:10:30', 'thumb1.jpg', 5000, 100, 5, '2022-01-05 12:00:00', 'public', 1, 1),
+('Test Video 2', 'Description of test video 2', 2048, 'video2.mp4', '00:15:45', 'thumb2.jpg', 8000, 150, 10, '2022-02-10 14:30:00', 'hidden', 2, 2),
+('Test Video 3', 'Description of test video 3', 4096, 'video3.mp4', '00:20:20', 'thumb3.jpg', 10000, 200, 8, '2022-03-20 16:45:00', 'private', 3, 3);
+
+-- Inserción de datos en la tabla suscription
 INSERT INTO suscription (user_id, channel_id, suscription_date)
-VALUES
-(1, 2, '2024-01-02 09:30:00'),
-(2, 3, '2024-02-02 10:00:00'),
-(3, 1, '2024-03-02 11:00:00');
+VALUES 
+(1, 2, '2022-01-10 08:00:00'),
+(2, 3, '2022-02-15 10:30:00'),
+(3, 1, '2022-03-25 12:45:00');
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE ME GUSTA
-INSERT INTO likes (user_id, channel_id, video_id, choose, like_date)
-VALUES
-(1, 2, 1,"like", '2024-01-03 10:30:00'),
-(2, 3, 2,"dislike", '2024-02-03 11:00:00'),
-(3, 1, 3,"dislike", '2024-03-03 12:30:00');
+-- Inserción de datos en la tabla likes
+INSERT INTO likes (user_id, choose, video_id, like_date)
+VALUES 
+(1, 'like', 2, '2022-01-12 09:30:00'),
+(2, 'like', 3, '2022-02-20 11:00:00'),
+(3, 'dislike', 1, '2022-03-30 13:15:00');
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE LISTAS DE REPRODUCCIÓN
+-- Inserción de datos en la tabla playlist
 INSERT INTO playlist (playlist_name, date_creation, playlist_status)
-VALUES
-('Lista1', '2024-01-01 12:00:00', 'public'),
-('Lista2', '2024-02-01 14:30:00', 'public'),
-('Lista3', '2024-03-01 10:45:00', 'public');
+VALUES 
+('Travel Playlist', '2022-01-15 10:00:00', 'public'),
+('Music Playlist', '2022-02-20 11:30:00', 'private'),
+('Sports Playlist', '2022-03-25 13:45:00', 'hidden');
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE VIDEOS EN LISTAS DE REPRODUCCIÓN
+-- Inserción de datos en la tabla video_on_playlist
 INSERT INTO video_on_playlist (playlist_id, video_id)
-VALUES
+VALUES 
 (1, 1),
 (2, 2),
 (3, 3);
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE COMENTARIOS
-INSERT INTO comments (comment_text, date_creation, user_id, channel_id, video_id)
-VALUES
-('¡Gran video!', '2024-01-05 09:30:00', 1, 2, 1),
-('No estoy de acuerdo', '2024-02-05 10:00:00', 2, 3, 2),
-('Interesante tutorial', '2024-03-05 11:30:00', 3, 1, 3);
+-- Inserción de datos en la tabla comments
+INSERT INTO comments (comment_text, date_creation, user_id, video_id)
+VALUES 
+('Great video!', '2022-01-12 10:00:00', 1, 2),
+('Interesting content', '2022-02-20 11:30:00', 2, 3),
+('I didnt like this video so much', '2022-03-30 13:45:00', 3, 1);
 
--- INSERTAR DATOS FICTICIOS EN LA TABLA DE ME GUSTA DE COMENTARIOS
-INSERT INTO comment_like (date_creation, user_id, choose,comment_id)
-VALUES
-('2024-01-06 09:45:00', 1,"like" ,1),
-('2024-02-06 10:15:00', 2,"dislike" ,2),
-('2024-03-06 11:45:00', 3,"dislike" ,3);
+-- Inserción de datos en la tabla comment_like
+INSERT INTO comment_like (date_creation, choose, user_id, comment_id)
+VALUES 
+('2022-01-12 10:15:00', 'like', 2, 1),
+('2022-02-20 11:45:00', 'like', 3, 2),
+('2022-03-30 14:00:00', 'dislike', 1, 3);
