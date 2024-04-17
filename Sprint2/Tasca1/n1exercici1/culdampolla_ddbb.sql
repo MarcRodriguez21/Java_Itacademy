@@ -33,14 +33,12 @@ CREATE TABLE IF NOT EXISTS marca (
 CREATE TABLE gafas (
   Idgafas INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   marca_id INT NOT NULL,
-  ProveedorID INT NOT NULL,
   Nombre VARCHAR(45) NOT NULL,
   Graduacion DECIMAL(2,2) NOT NULL,
   Montura SET('flotante', 'pasta', 'metálica') NOT NULL,
   ColorMontura VARCHAR(15) NOT NULL,
   ColorCristales VARCHAR(45) NOT NULL,
   Precio DECIMAL(6,2) NOT NULL,
-  FOREIGN KEY (`ProveedorID`) REFERENCES `Proveedor` (`idProveedor`),
   FOREIGN KEY (marca_id) REFERENCES marca(id_marca)
 );
 

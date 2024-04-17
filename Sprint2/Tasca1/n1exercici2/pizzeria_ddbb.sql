@@ -26,9 +26,7 @@ CREATE TABLE direccion(
     cp VARCHAR(12),
     pais VARCHAR(30),
     localidad_id INT,
-    provincia_id INT,
-    FOREIGN KEY (localidad_id) REFERENCES localidades(id_localitat),
-    FOREIGN KEY (provincia_id) REFERENCES provincias(id_provincia)
+    FOREIGN KEY (localidad_id) REFERENCES localidades(id_localitat)
     );
 
 -- CREATION OF TABLE CLIENTE 
