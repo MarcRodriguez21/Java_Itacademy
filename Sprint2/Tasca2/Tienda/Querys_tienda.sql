@@ -12,18 +12,11 @@ FROM producto p;
 SELECT * FROM producto;
 
 -- 4.LLista el nom dels productes, el preu en euros i el preu en dòlars estatunidencs (USD).
-ALTER TABLE producto
-DROP COLUMN  precio_dolares;
-ALTER TABLE producto
-ADD precio_dolares DOUBLE;
-SET SQL_SAFE_UPDATES = 0;
-UPDATE producto
-SET precio_dolares = precio * 0.85; 
-SELECT nombre AS nombre_productos, precio AS precio_euros, precio_dolares AS precio_dolares
+SELECT nombre, precio, precio * 0.85 
 FROM producto;
 
 -- 5.LLista el nom dels productes, el preu en euros i el preu en dòlars estatunidencs (USD). Utilitza els següents àlies per a les columnes: nom de producto, euros, dòlars.
-SELECT nombre AS nom_de_producto, precio AS euros, precio_dolares AS dolars
+SELECT nombre AS nombre_productos, precio AS precio_euros, precio * 0.85 AS precio_dolares
 FROM producto;
 
 -- 6.LLista els noms i els preus de tots els productes de la taula producto, convertint els noms a majúscula.
