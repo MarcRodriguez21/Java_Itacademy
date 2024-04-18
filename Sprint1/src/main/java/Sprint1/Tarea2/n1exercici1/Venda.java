@@ -20,13 +20,5 @@ public class Venda {
         return precioTotal;
     }
 
-    public void listarProductos(){
-        for (Producte producto : productos) {
-            System.out.println(producto.getNom() + " " + producto.getPreu() + " €");
-        }
-
-    }
-
-
 }
 
