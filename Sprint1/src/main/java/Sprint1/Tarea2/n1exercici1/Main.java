@@ -1,28 +1,36 @@
 package Sprint1.Tarea2.n1exercici1;
 
+import java.util.function.IntFunction;
+
 public class Main {
 
-    public static void main(String[] args) throws VendaBuidaException {
+    public static void main(String[] args) {
         // TODO Auto-generated method stub
 
-
         System.out.println("Venta sin productos.");
-        Producte[] vacio = new Producte[0];
-        Venda venta1 = new Venda(vacio);
-        System.out.println(venta1.calcularTotal() + " €");
+        try {
+            Producte[] vacio = new Producte[0];
+            Venda venta1 = new Venda(vacio);
+            System.out.println(venta1.calcularTotal() + " €");
+        } catch (VendaBuidaException  | ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
         System.out.println("Venta con productos.");
-        Producte[] vacio3 = new Producte[2];
-        vacio3[0] = new Producte("Cola",2);
-        vacio3[1]= new Producte("Pan",1);
-        Venda venta3 = new Venda(vacio3);
-        System.out.println(venta3.ventaConProductos() + " €");
 
-        System.out.println("Error out of bounds.");
-        Producte[] vacio2 = new Producte[1];
-        vacio2[0] = new Producte("Cola",2);
-        Venda venta2 = new Venda(vacio2);
-        System.out.println(venta2.calcularTotal());
+        try {
+            Producte[] productos = new Producte[2];
+            productos[0] = new Producte("Cola",2);
+            productos[1]= new Producte("Pan",1);
+            Venda venta3 = new Venda(productos);
+            System.out.println(venta3.calcularTotal() + " €");
+
+            System.out.println("Añadir producto fuera de indice.");
+            Producte producto_out = productos[2];
+
+        } catch (VendaBuidaException  | ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
 
     }
 
