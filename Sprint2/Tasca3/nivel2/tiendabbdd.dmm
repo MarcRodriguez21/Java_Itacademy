@@ -777,6 +777,22 @@
 					"pattern": false,
 					"estimatedSize": "",
 					"any": ""
+				},
+				{
+					"id": "9beb1c4e-7b72-4034-96a9-0db363c85136",
+					"name": "image",
+					"datatype": "string",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"comment": "",
+					"data": "",
+					"enum": "",
+					"validation": "",
+					"pattern": false,
+					"estimatedSize": "",
+					"any": ""
 				}
 			],
 			"relations": [],
@@ -859,6 +875,22 @@
 					"pattern": false,
 					"estimatedSize": "",
 					"any": ""
+				},
+				{
+					"id": "cd8d2c51-fefa-4522-b362-c31df6d09b6d",
+					"name": "image",
+					"datatype": "string",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"comment": "",
+					"data": "",
+					"enum": "",
+					"validation": "",
+					"pattern": false,
+					"estimatedSize": "",
+					"any": ""
 				}
 			],
 			"relations": [],
@@ -917,6 +949,22 @@
 					"param": "",
 					"pk": false,
 					"nn": true,
+					"list": false,
+					"comment": "",
+					"data": "",
+					"enum": "",
+					"validation": "",
+					"pattern": false,
+					"estimatedSize": "",
+					"any": ""
+				},
+				{
+					"id": "421a2d20-c8e8-4da4-8999-f15f7ee53f43",
+					"name": "image",
+					"datatype": "string",
+					"param": "",
+					"pk": false,
+					"nn": false,
 					"list": false,
 					"comment": "",
 					"data": "",
@@ -1186,7 +1234,8 @@
 		"def_validationAction": "na",
 		"def_collation": "",
 		"def_others": "",
-		"connectionVersion": ""
+		"connectionVersion": "",
+		"lastSaved": 1713958270585
 	},
 	"otherObjects": {},
 	"diagrams": {
@@ -1206,7 +1255,7 @@
 					"referencedItemId": "6109cb5d-6de3-482b-aeb7-6b7b290ce4e9",
 					"x": 45,
 					"y": 30,
-					"gHeight": 855,
+					"gHeight": 909,
 					"gWidth": 210,
 					"color": "#ffffff",
 					"background": "#03a9f4",
