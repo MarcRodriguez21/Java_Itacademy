@@ -18,7 +18,7 @@ db.Restaurante.find({ borough: 'Bronx' }).skip(5).limit(5)
 //8.Escriu una consulta per trobar els restaurants que tenen un score de més de 90.
 db.Restaurante.find({ 'grades.score': { $gt: 90 } })
 //9.Escriu una consulta per trobar els restaurants que tenen un score de més de 80 però menys que 100.
-db.Restaurante.find({ 'grades': { $elemMatch: { 'score': { $gt: 80, $lt: 100 } } } });
+db.restaurants.find({ "grades.score": { $gt: 80, $lt: 100 } });
 //10.Escriu una consulta per trobar els restaurants que es localitzen en valor de latitud menys de -95.754168.
 db.Restaurante.find({ 'address.coord': { $lt: -95.754168 } });
 //11.Escriu una consulta de MongoDB per a trobar els restaurants que no preparen cap cuisine de 'American' i la seva qualificació és superior a 70 i longitud inferior a -65.754168.
@@ -48,7 +48,7 @@ db.Restaurante.find({ grades : { $elemMatch : { date : ISODate("2014-08-11T00:00
 //23.Escriu una consulta per trobar el restaurant_id, name i grades per a aquells restaurants on el 2n element de varietat de graus conté un grau de "A" i marcador 9 sobre un ISODate "2014-08-11T00:00:00Z".
 db.Restaurante.find({ 'grades.grade': "A", 'grades.score': 9, 'grades.date': ISODate("2014-08-11T00:00:00Z") }, { restaurant_id: 1, name: 1, grades: { $slice: [1, 1] } });
 //24.Escriu una consulta per trobar el restaurant_id, name, adreça i ubicació geogràfica per a aquells restaurants on el segon element del array coord conté un valor que és més de 42 i fins a 52.
-db.Restaurante.find({ 'address.coord': { $gt: 42, $lt: 52 } }, { restaurant_id: 1, name: 1, 'address.street' : 1 , 'address.coord': { $slice: [1, 1] } });
+db.Restaurante.find({ 'address.coord': { $gt: 42, $lt: 52 } }, { restaurant_id: 1, name: 1, 'address.street' : 1 ,  'address.coord': 1 });
 //25.Escriu una consulta per organitzar el nom dels restaurants en ordre ascendent juntament amb totes les columnes.
 db.Restaurante.find({}).sort({ name: 1 });
 //26.Escriu una consulta per organitzar el nom dels restaurants en ordre descendent juntament amb totes les columnes.
@@ -56,7 +56,7 @@ db.Restaurante.find({}).sort({ name: -1 });
 //27.Escriu una consulta per organitzar el nom de la cuisine en ordre ascendent i pel mateix barri de cuisine. Ordre descendent.
 db.Restaurante.find({}).sort({ cuisine: 1, borough: -1 });
 //28.Escriu una consulta per saber totes les direccions que no contenen el carrer.
-db.Restaurante.find({ 'address.street': null });
+db.restaurants.find({ "address.street": { $exists: false } });
 //29.Escriu una consulta que seleccionarà tots els documents en la col·lecció de restaurants on el valor del camp coord és Double.
 db.Restaurante.find( { 'address.coord' : { $type : 'double'}});
 //30.Escriu una consulta que seleccionarà el restaurant_id, name i grade per a aquells restaurants que retornin 0 com a resta després de dividir el marcador per 7.
