@@ -53,7 +53,6 @@ public class SneakerLover {
                     break;
                 default:
                     System.out.println("Opcion incorrecta");
-                    break;
             }
 
         }
